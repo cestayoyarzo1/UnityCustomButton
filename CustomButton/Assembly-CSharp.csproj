@@ -64,7 +64,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\CustomButton.cs" />
-    <Compile Include="Assets\Scripts\TestButton.cs" />
+    <Compile Include="Assets\Scripts\CustomUnityEvent.cs" />
+    <Compile Include="Assets\Scripts\EventManager.cs" />
+    <Compile Include="Assets\Scripts\Panel.cs" />
+    <Compile Include="Assets\Scripts\Singleton.cs" />
+    <Compile Include="Assets\Scripts\TestScript1.cs" />
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>D:/UnityProjects/Tutorials/UnityCustomButton/CustomButton/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>
