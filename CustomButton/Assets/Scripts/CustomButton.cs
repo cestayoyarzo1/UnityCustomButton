@@ -5,6 +5,12 @@ using UnityEngine.Events;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
+//File Created by Carlos Estay
+//carlos.estay@gmail.com
+//https://github.com/cestayoyarzo1
+//February 22nd, 2020
+//This script creates a custom button class that exposes extra handlers for buttons using Unity Events
+
 public class CustomButton : Button
 {
 

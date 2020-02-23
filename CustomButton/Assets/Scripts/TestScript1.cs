@@ -5,6 +5,12 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
+//File Created by Carlos Estay
+//carlos.estay@gmail.com
+//https://github.com/cestayoyarzo1
+//Defruary 22nd, 2020
+//This script is just for testing
+
 public class TestScript1 : MonoBehaviour
 {
 
@@ -28,7 +34,7 @@ public class TestScript1 : MonoBehaviour
         EventManager.Instance.onPointerExit.AddListener(PointerExit);
         EventManager.Instance.onPointerUp.AddListener(PointerUp);
         EventManager.Instance.onPointerDown.AddListener(PointerDown);
-        EventManager.Instance.Beacon();
+        //EventManager.Instance.Beacon();
 
         foreach (CustomButton item in buttons)
         {
@@ -48,15 +54,15 @@ public class TestScript1 : MonoBehaviour
     }
 
     private void OnDisable()
-    {
-        EventManager.Instance.onPointerClick.RemoveAllListeners();
-        EventManager.Instance.onPointerEnter.RemoveAllListeners();
-        EventManager.Instance.onPointerExit.RemoveAllListeners();
-        EventManager.Instance.onPointerUp.RemoveAllListeners();
-        EventManager.Instance.onPointerDown.RemoveAllListeners();
+    {//Only try to unsubscribe if Event Manager has not yet been destroyed
+#pragma warning disable UNT0008 // Null propagation on Unity objects
+        EventManager.Instance?.onPointerClick.RemoveListener(ButtonClicked);
+        EventManager.Instance?.onPointerEnter.RemoveListener(PointerEnter);
+        EventManager.Instance?.onPointerExit.RemoveListener(PointerExit);
+        EventManager.Instance?.onPointerUp.RemoveListener(PointerUp);
+        EventManager.Instance?.onPointerDown.RemoveListener(PointerDown);
+#pragma warning restore UNT0008 // Null propagation on Unity objects
     }
-
-
 
     private void PointerDown(GameObject arg0, CustomEventArgs arg1)
     {

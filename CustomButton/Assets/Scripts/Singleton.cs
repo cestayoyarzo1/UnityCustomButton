@@ -2,9 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-
-
-
+//Modified by Carlos Estay
+//carlos.estay@gmail.com
+//https://github.com/cestayoyarzo1
+//Originally obtained from
+//http://wiki.unity3d.com/index.php/Singleton
+//February 22nd, 2020
+//This script contains the mother class for a Singleton, which could be persistent or non-persistent,
+//according to the SingletonType enumeration, which should be set in the Child Constructor
 
 public enum SingletonType
 {
@@ -65,11 +70,22 @@ public class Singleton<T> : MonoBehaviour where T: MonoBehaviour
     //Destroy instance if necessary
     private void OnApplicationQuit()
     {
+        ChildDestroy();
         _Destroyed = true;
     }
 
     private void OnDestroy()
     {
-        _Destroyed = true;
+        if (!_Destroyed)
+        {
+            ChildDestroy();
+            _Destroyed = true;
+        }
+    }
+
+    //This allows to do something in the child before destroying it, for instance unsubscribe from events
+    virtual public void ChildDestroy()
+    {
+
     }
 }
